@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.globalseguridad.panicbutton.navigation.ScreensNavigation
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.delay
 
 @Composable
@@ -43,15 +44,25 @@ fun SplashScreen(navController: NavController) {
         )
         //reemplazar el delay por alguna accion
         delay(3000L)
-        navController.navigate(ScreensNavigation.LoginScreen.name)
+
+        //navController.navigate(ScreensNavigation.LoginScreen.name)
+        if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
+            navController.navigate(ScreensNavigation.LoginScreen.name)
+        } else {
+            navController.navigate(ScreensNavigation.HomeScreen.name) {
+                popUpTo(ScreensNavigation.SplashScreen.name) {
+                    inclusive = true
+                }
+
+            }
+        }
     }
     val color = MaterialTheme.colorScheme.primary
     Surface(
         modifier = Modifier
             .padding(15.dp)
             .size(330.dp)
-            .scale(scale.value)
-        ,
+            .scale(scale.value),
         shape = CircleShape,
         color = Color.White,
         border = BorderStroke(width = 2.dp, color = color)
