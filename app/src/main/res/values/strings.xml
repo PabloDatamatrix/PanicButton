@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Panic Button</string>
+
+    <!-- Agregar estos textos a los recursos de cadenas (strings.xml) -->
+    <string name="login_title">Inicia sesión</string>
+    <string name="create_account_title">Registro de usuario</string>
+    <string name="login_question">¿No tienes cuenta?</string>
+    <string name="create_account_question">¿Has olvidado tu contraseña?</string>
+    <string name="toggle_action">Regístrate</string>
 </resources>

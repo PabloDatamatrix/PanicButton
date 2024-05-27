@@ -1,4 +1,4 @@
-package com.globalseguridad.panicbutton.screens.login
+package com.globalseguridad.panicbutton.presentation.screens.login
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -28,48 +28,68 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.globalseguridad.panicbutton.navigation.ScreensNavigation
+import com.globalseguridad.panicbutton.R
+import com.globalseguridad.panicbutton.presentation.navigation.ScreensNavigation
+import androidx.lifecycle.viewmodel.compose.viewModel
+/*TODO:
+    - Proporciona retroalimentación al usuario en caso de error durante la autenticación
+    - agregar un indicador de carga (spinner) mientras se realiza la autenticación
+    - Usa recursos de cadenas (strings.xml) para todos los textos, lo que facilita la localización.
+    - Añade descripciones de contenido (contentDescription) a los íconos y otros elementos importantes para mejorar la accesibilidad.
+    - Define constantes para las etiquetas y otros textos repetitivos.
+    - Funciones Utilitarias: Si tienes funcionalidades que se repiten (como la configuración de OutlinedTextField), considera extraerlas en funciones utilitarias para reducir la repetición de código.
 
+* */
 @Composable
 fun LoginScreen(
     navController: NavController,
-    viewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-    ) {
-    //True = Login ; False = Create
-    val showLoginForm = rememberSaveable {
-        mutableStateOf(true)
-    }
+    viewModel: LoginScreenViewModel = viewModel()
+) {
+    // True: Mostrar formulario de inicio de sesión, False: Mostrar formulario de creación de cuenta
+    val showLoginForm = rememberSaveable { mutableStateOf(true) }
+
     Surface(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             if (showLoginForm.value) {
-                Text(text = "Inicia sesión")
+                Text(text = stringResource(id = R.string.login_title))
                 UserForm(isCreateAccount = false) { email, password ->
-                    Log.d("Global tag", "Logueado con $email y $password")
-                    viewModel.singInWithEmailAndPassword(email,password){
-                        navController.navigate(ScreensNavigation.HomeScreen.name)
-                    }
+                    viewModel.signInWithEmailAndPassword(email, password,
+                        onSuccess = {
+                            navController.navigate(ScreensNavigation.HomeScreen.name)
+                        },
+                        onError = { errorMessage ->
+                            // Manejar error de autenticación aquí
+                            Log.e("LoginScreen", errorMessage)
+                        }
+                    )
                 }
             } else {
-                Text(text = "Crear una cuenta")
+                Text(text = stringResource(id = R.string.create_account_title))
                 UserForm(isCreateAccount = true) { email, password ->
-                    Log.d("Global tag", "Creando cuenta con $email y $password")
-                    viewModel.createUserWithEmailAndPassword(email,password){
-                        navController.navigate(ScreensNavigation.HomeScreen.name)
-                    }
+                    viewModel.createUserWithEmailAndPassword(email, password,
+                        onSuccess = {
+                            navController.navigate(ScreensNavigation.HomeScreen.name)
+                        },
+                        onError = { errorMessage ->
+                            // Manejar error de creación de cuenta aquí
+                            Log.e("LoginScreen", errorMessage)
+                        }
+                    )
                 }
             }
             Spacer(modifier = Modifier.height(15.dp))
@@ -77,14 +97,14 @@ fun LoginScreen(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                val tex1 =
-                    if (showLoginForm.value) "¿No tienes cuenta?"
-                    else "¿Ya tienes cuenta?"
-                val tex2 =
-                    if (showLoginForm.value) "Regístrate"
-                    else "Inicia Sesión"
-                Text(text = tex1)
-                Text(text = tex2,
+                val toggleButtonText = if (showLoginForm.value) {
+                    stringResource(id = R.string.create_account_question)
+                } else {
+                    stringResource(id = R.string.login_question)
+                }
+                Text(text = toggleButtonText)
+                Text(
+                    text = stringResource(id = R.string.toggle_action),
                     modifier = Modifier
                         .clickable { showLoginForm.value = !showLoginForm.value }
                         .padding(5.dp),
@@ -95,6 +115,7 @@ fun LoginScreen(
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun UserForm(
     isCreateAccount: Boolean,

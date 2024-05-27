@@ -1,4 +1,4 @@
-package com.globalseguridad.panicbutton.model
+package com.globalseguridad.panicbutton.data.models
 
 data class User(
     val id: String?,
