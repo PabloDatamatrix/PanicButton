@@ -1,58 +1,55 @@
 package com.globalseguridad.panicbutton.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.globalseguridad.panicbutton.data.models.Gender
 import com.globalseguridad.panicbutton.data.models.Photos
 import com.globalseguridad.panicbutton.data.models.User
 
 class UserViewModel : ViewModel() {
-    private val _users = MutableLiveData<List<User>>()
-    val users: LiveData<List<User>> = _users
+    val users = mutableStateOf<List<User>>(listOf())
 
     init {
-        loadUsers()
-    }
-
-    private fun loadUsers() {
-        val sampleUsers = listOf(
+        // Load mock data
+        users.value = listOf(
             User(
                 id = "1",
                 name = "John",
                 surname = "Doe",
                 email = "john.doe@example.com",
-                password = "password123",
+                password = "password",
                 phone = "123456789",
                 birthdate = "1990-01-01",
                 gender = Gender.MALE,
-                document = "ID123456",
-                verificationCode = "ABC123",
-                photo = Photos(id = "1", path = "/images/user1.jpg"),
+                document = "12345678",
+                verificationCode = "code",
+                photo = Photos(id = "1", path = "https://c1.klipartz.com/pngpicture/823/765/sticker-png-login-icon-system-administrator-user-user-profile-icon-design-avatar-face-head.png"),
                 status = "active",
                 userId = "user1",
-                displayName = "John Doe",
-                avatarUrl = "https://example.com/avatar1.jpg"
+                displayName = "JohnD",
+                avatarUrl = "https://example.com/photo1.jpg"
             ),
             User(
                 id = "2",
                 name = "Jane",
                 surname = "Doe",
                 email = "jane.doe@example.com",
-                password = "password123",
+                password = "password",
                 phone = "987654321",
                 birthdate = "1992-02-02",
                 gender = Gender.FEMALE,
-                document = "ID654321",
-                verificationCode = "XYZ789",
-                photo = Photos(id = "2", path = "/images/user2.jpg"),
-                status = "inactive",
+                document = "87654321",
+                verificationCode = "code",
+                photo = Photos(id = "2", path = "https://c1.klipartz.com/pngpicture/823/765/sticker-png-login-icon-system-administrator-user-user-profile-icon-design-avatar-face-head.png"),
+                status = "active",
                 userId = "user2",
-                displayName = "Jane Doe",
-                avatarUrl = "https://example.com/avatar2.jpg"
+                displayName = "JaneD",
+                avatarUrl = "https://example.com/photo2.jpg"
             )
-            // Agrega más usuarios si es necesario
         )
-        _users.value = sampleUsers
+    }
+
+    fun getUserById(userId: String): User? {
+        return users.value.find { it.userId == userId }
     }
 }

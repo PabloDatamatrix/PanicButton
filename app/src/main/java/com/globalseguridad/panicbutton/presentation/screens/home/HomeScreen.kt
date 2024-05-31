@@ -172,12 +172,12 @@ fun StyledButton(
                 .background(
                     backgroundColor,
                     RoundedCornerShape(16.dp)
-                )
+                ),
         ) {
             if (showIcon && icon != null) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                    verticalArrangement = Arrangement.Center,
                 ) {
                     Icon(
                         imageVector = icon,
@@ -208,16 +208,16 @@ fun StyledButton(
     }
 }
 
-@Preview
-@Composable
-fun PreviewStyledButton() {
-    StyledButton(
-        text = "S O S",
-        backgroundColor = colorResource(id = R.color.primary_gs),
-        showIcon = false,
-        onClick = { }
-    )
-}
+//@Preview
+//@Composable
+//fun PreviewStyledButton() {
+//    StyledButton(
+//        text = "S O S",
+//        backgroundColor = colorResource(id = R.color.primary_gs),
+//        showIcon = false,
+//        onClick = { }
+//    )
+//}
 
 @Preview
 @Composable

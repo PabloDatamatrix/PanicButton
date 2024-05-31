@@ -1,4 +1,4 @@
-package com.globalseguridad.panicbutton.presentation.screens
+package com.globalseguridad.panicbutton.presentation.screens.permission
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController

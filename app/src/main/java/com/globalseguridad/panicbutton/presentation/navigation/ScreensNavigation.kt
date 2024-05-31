@@ -7,5 +7,6 @@ enum class ScreensNavigation {
     UbicationScreen,
     ProfileScreen,
     SettingScreen,
-    PermissionScreen
+    PermissionScreen,
+    UserDetailsScreen
 }
