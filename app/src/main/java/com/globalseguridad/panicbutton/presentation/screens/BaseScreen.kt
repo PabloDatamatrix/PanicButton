@@ -2,10 +2,12 @@ package com.globalseguridad.panicbutton.presentation.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Emergency
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -36,7 +38,9 @@ fun BaseScreen(
             }
         },
         bottomBar = {
-            BottomAppBar(containerColor = MaterialTheme.colorScheme.primaryContainer) {
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.primary
+            ) {
                 NavegacionInferior(navController)
             }
         },
@@ -46,7 +50,7 @@ fun BaseScreen(
                 shape = CircleShape,
                 containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
                 elevation = FloatingActionButtonDefaults.elevation()
-            ) { Icon(Icons.Filled.Add, "Localized description") }
+            ) { Icon(Icons.Filled.Emergency, "Localized description") }
         },
         floatingActionButtonPosition = FabPosition.Center
     ) { innerPadding ->
@@ -63,7 +67,7 @@ fun BaseScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SmallTopAppBar(title: String) {
-   TopAppBar(
+    TopAppBar(
         colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             titleContentColor = MaterialTheme.colorScheme.primary,

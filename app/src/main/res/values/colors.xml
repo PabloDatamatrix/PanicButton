@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+/* Colores de la marca */
+    <color name="primary_gs">#EB3F3B</color>
+    <color name="secondary_gs">#334A74</color>
+    <color name="bg_gray_gs">#D9D9D9</color>
+    <color name="yellow_gs">#ECD872</color>
+    <color name="green_gs">#2BAA9B</color>
+
 </resources>

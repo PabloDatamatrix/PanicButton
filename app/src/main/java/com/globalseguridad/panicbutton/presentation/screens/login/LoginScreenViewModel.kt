@@ -3,6 +3,8 @@ package com.globalseguridad.panicbutton.presentation.screens.login
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.globalseguridad.panicbutton.data.models.Gender
+import com.globalseguridad.panicbutton.data.models.Photos
 import com.globalseguridad.panicbutton.data.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -50,10 +52,24 @@ class LoginScreenViewModel : ViewModel() {
     private fun createUser(displayName: String) {
         val userId = auth.currentUser?.uid
         val user = User(
+            id = null,
+            name = "John",
+            surname = "Doe",
+            email = "john.doe@example.com",
+            password = "password123",
+            phone = "1234567890",
+            birthdate = "1990-01-01",
+            gender = Gender.MALE,
+            document = "123456789",
+            verificationCode = "verificationCode123",
+            photo = Photos(
+                id = "1",
+                path = "path/to/photo.jpg"
+            ),
+            status = "Active",
             userId = userId.toString(),
             displayName = displayName,
-            avatarUrl = "",
-            id = null
+            avatarUrl = "url/to/avatar.jpg"
         ).toMap()
 
         FirebaseFirestore.getInstance().collection("users")

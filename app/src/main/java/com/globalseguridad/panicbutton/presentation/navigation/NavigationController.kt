@@ -1,18 +1,14 @@
 package com.globalseguridad.panicbutton.presentation.navigation
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.globalseguridad.panicbutton.presentation.screens.PermissionScreen
 import com.globalseguridad.panicbutton.presentation.screens.Profile
 import com.globalseguridad.panicbutton.presentation.screens.Setting
 import com.globalseguridad.panicbutton.presentation.screens.SplashScreen
-import com.globalseguridad.panicbutton.presentation.screens.Ubication
+import com.globalseguridad.panicbutton.presentation.screens.ubication.Ubication
 import com.globalseguridad.panicbutton.presentation.screens.home.Home
 import com.globalseguridad.panicbutton.presentation.screens.login.LoginScreen
 

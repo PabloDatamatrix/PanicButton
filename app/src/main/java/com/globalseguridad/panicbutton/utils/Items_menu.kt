@@ -9,24 +9,24 @@ sealed class Items_menu(
     val ruta: String
 ) {
     object Home : Items_menu(
-        R.drawable.baseline_home_24,
+        R.drawable.home_gs,
         "Inicio",
         ScreensNavigation.HomeScreen.toString()
     )
 
     object Ubication : Items_menu(
-        R.drawable.baseline_location_pin_24,
+        R.drawable.ubication_gs,
         "ubicación",
         ScreensNavigation.UbicationScreen.toString()
     )
 
     object Profile : Items_menu(
-        R.drawable.baseline_person_24,
+        R.drawable.profile_gs,
         "Perfil",
         ScreensNavigation.ProfileScreen.toString()
     )
     object Setting : Items_menu(
-        R.drawable.baseline_settings_24,
+        R.drawable.setting_gs,
         "Ajustes",
         ScreensNavigation.SettingScreen.toString()
     )
