@@ -24,10 +24,7 @@ class UserViewModel : ViewModel() {
                 document = "12345678",
                 verificationCode = "code",
                 photo = Photos(id = "1", path = "https://c1.klipartz.com/pngpicture/823/765/sticker-png-login-icon-system-administrator-user-user-profile-icon-design-avatar-face-head.png"),
-                status = "active",
-                userId = "user1",
-                displayName = "JohnD",
-                avatarUrl = "https://example.com/photo1.jpg"
+                status = "active"
             ),
             User(
                 id = "2",
@@ -41,15 +38,12 @@ class UserViewModel : ViewModel() {
                 document = "87654321",
                 verificationCode = "code",
                 photo = Photos(id = "2", path = "https://c1.klipartz.com/pngpicture/823/765/sticker-png-login-icon-system-administrator-user-user-profile-icon-design-avatar-face-head.png"),
-                status = "active",
-                userId = "user2",
-                displayName = "JaneD",
-                avatarUrl = "https://example.com/photo2.jpg"
+                status = "active"
             )
         )
     }
 
     fun getUserById(userId: String): User? {
-        return users.value.find { it.userId == userId }
+        return users.value.find { it.id == userId }
     }
 }

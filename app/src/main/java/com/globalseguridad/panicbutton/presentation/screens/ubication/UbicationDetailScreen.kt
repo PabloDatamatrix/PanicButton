@@ -7,10 +7,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.globalseguridad.panicbutton.R
 import com.globalseguridad.panicbutton.presentation.screens.BaseScreen
 
 
@@ -18,7 +21,8 @@ import com.globalseguridad.panicbutton.presentation.screens.BaseScreen
 fun UserDetailsScreen(navController: NavHostController, userId: String) {
     BaseScreen(
         navController = navController,
-        topBarTitle = "Detalles del Usuario"
+        topBarTitle = "Detalles del Usuario",
+        backgroundColor = colorResource(id = R.color.bg_gray_gs)
     ) {
         Column(
             modifier = Modifier

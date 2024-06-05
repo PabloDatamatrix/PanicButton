@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+
     implementation ("io.coil-kt:coil-compose:2.6.0")
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
