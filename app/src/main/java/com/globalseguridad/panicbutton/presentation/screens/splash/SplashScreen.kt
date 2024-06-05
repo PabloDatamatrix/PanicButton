@@ -40,8 +40,8 @@ fun SplashScreen(navController: NavController) {
         //reemplazar el delay por alguna accion
         delay(3000L)
         //Linea para probar Formularios
-       // navController.navigate(ScreensNavigation.LoginScreen.name)
-//
+        // navController.navigate(ScreensNavigation.LoginScreen.name)
+
         try {
             val user = FirebaseAuth.getInstance().currentUser
             // Navega a la pantalla de login si el usuario no está autenticado, o a la pantalla principal si lo está

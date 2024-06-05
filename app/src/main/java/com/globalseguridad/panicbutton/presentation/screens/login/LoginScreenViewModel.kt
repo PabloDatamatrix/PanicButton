@@ -66,10 +66,7 @@ class LoginScreenViewModel : ViewModel() {
                 id = "1",
                 path = "path/to/photo.jpg"
             ),
-            status = "Active",
-            userId = userId.toString(),
-            displayName = displayName,
-            avatarUrl = "url/to/avatar.jpg"
+            status = "Active"
         ).toMap()
 
         FirebaseFirestore.getInstance().collection("users")

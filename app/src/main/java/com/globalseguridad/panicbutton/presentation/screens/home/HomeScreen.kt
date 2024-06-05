@@ -28,7 +28,7 @@ import com.globalseguridad.panicbutton.presentation.screens.BaseScreen
 fun Home(navController: NavHostController) {
     BaseScreen(
         navController = navController,
-        topBarTitle = "Home"
+        topBarTitle = "Botón de Pánico"
     ) {
         Column(
             modifier = Modifier

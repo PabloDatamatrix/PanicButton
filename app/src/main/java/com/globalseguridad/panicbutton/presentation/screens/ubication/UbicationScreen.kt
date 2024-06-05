@@ -9,6 +9,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.AddAlert
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,7 +37,8 @@ import com.globalseguridad.panicbutton.viewmodel.UserViewModel
 fun Ubication(navController: NavHostController, viewModel: UserViewModel = viewModel()) {
     BaseScreen(
         navController = navController,
-        topBarTitle = "Ubicación"
+        topBarTitle = "Ubicación",
+        backgroundColor = Color.Gray
     ) {
         val users = viewModel.users.value ?: emptyList()
 
@@ -50,7 +53,7 @@ fun Ubication(navController: NavHostController, viewModel: UserViewModel = viewM
             ) {
                 items(users) { user ->
                     UserRow(user = user, onUserClick = { selectedUser ->
-                        val userId = user.userId
+                        val userId = user.id
                         navController.navigate("${ScreensNavigation.UserDetailsScreen.name}/$userId")
 
                     })
@@ -102,7 +105,7 @@ fun UserRow(user: User, onUserClick: (User) -> Unit) {
                 )
             }
             Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                imageVector = Icons.Filled.ChevronRight,
                 contentDescription = "Forward Icon",
                 tint = Color.White,
                 modifier = Modifier.size(24.dp)

@@ -24,15 +24,10 @@ data class User(
     val photo:Photos,
     val status:String,
 
-    val userId: String,
-    val displayName: String,
-    val avatarUrl: String,
+
 ) {
     fun toMap(): MutableMap<String, Any> {
         return mutableMapOf(
-            "userId" to this.userId,
-            "displayName" to this.displayName,
-            "avatarUrl" to this.avatarUrl,
             "id" to (this.id ?: ""),
             "name" to this.name,
             "surname" to this.surname,
