@@ -6,7 +6,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.globalseguridad.panicbutton.presentation.screens.profile.BasicInfoScreen1
 import com.globalseguridad.panicbutton.presentation.screens.profile.BasicInfoScreen2
+import com.globalseguridad.panicbutton.presentation.screens.profile.ChangePasswordScreen
 import com.globalseguridad.panicbutton.presentation.screens.profile.MedicalInfoScreen
+import com.globalseguridad.panicbutton.presentation.screens.profile.PermissionLocationScreen
 import com.globalseguridad.panicbutton.presentation.screens.profile.Profile
 import com.globalseguridad.panicbutton.presentation.screens.profile.SecurityInfoScreen
 
@@ -29,6 +31,12 @@ fun NavGraphBuilder.profileNavGraph(navController: NavHostController) {
         }
         composable(ScreensNavigation.SecurityInfoScreen.name) {
             SecurityInfoScreen(navController = navController)
+        }
+        composable(ScreensNavigation.ChangePasswordScreen.name) {
+            ChangePasswordScreen(navController = navController)
+        }
+        composable(ScreensNavigation.PermissionLocationScreen.name) {
+            PermissionLocationScreen(navController = navController)
         }
     }
 }

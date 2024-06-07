@@ -1,0 +1,40 @@
+package com.globalseguridad.panicbutton.presentation.screens.profile
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.globalseguridad.panicbutton.presentation.screens.BaseScreen
+
+@Composable
+fun ChangePasswordScreen(navController: NavHostController) {
+    BaseScreen(
+        navController = navController,
+        topBarTitle = "Cambio de Contraseña",
+        backgroundColor = Color.Gray
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .background(Color.White)
+        ) {
+            Text(text = "Aquí puedes cambiar tu contraseña", color = Color.Black)
+
+            // Agrega tus componentes para cambiar la contraseña aquí
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ChangePasswordScreenPreview() {
+    val navController = rememberNavController()
+    ChangePasswordScreen(navController)
+}
