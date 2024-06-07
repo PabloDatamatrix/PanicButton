@@ -53,7 +53,9 @@ android {
 dependencies {
 
 
-    implementation ("io.coil-kt:coil-compose:2.6.0")
+    implementation(files("libs/MTBeaconPlus.aar"))
+
+    implementation("io.coil-kt:coil-compose:2.6.0")
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
     val nav_version = "2.7.7"
