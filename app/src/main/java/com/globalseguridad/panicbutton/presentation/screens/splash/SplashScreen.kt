@@ -40,23 +40,23 @@ fun SplashScreen(navController: NavController) {
         //reemplazar el delay por alguna accion
         delay(3000L)
         //Linea para probar Formularios
-        // navController.navigate(ScreensNavigation.LoginScreen.name)
+        navController.navigate(ScreensNavigation.LoginScreen.name)
 
-        try {
-            val user = FirebaseAuth.getInstance().currentUser
-            // Navega a la pantalla de login si el usuario no está autenticado, o a la pantalla principal si lo está
-            if (user?.email.isNullOrEmpty()) {
-                navController.navigate(ScreensNavigation.LoginScreen.name)
-            } else {
-                navController.navigate(ScreensNavigation.HomeScreen.name) {
-                    // Elimina la pantalla de splash del back stack para evitar que el usuario pueda volver a ella
-                    popUpTo(ScreensNavigation.SplashScreen.name) { inclusive = true }
-                }
-            }
-        } catch (e: Exception) {
-            // Maneja posibles errores de autenticación aquí
-            // Ejemplo: Mostrar un mensaje de error al usuario
-        }
+//        try {
+//            val user = FirebaseAuth.getInstance().currentUser
+//            // Navega a la pantalla de login si el usuario no está autenticado, o a la pantalla principal si lo está
+//            if (user?.email.isNullOrEmpty()) {
+//                navController.navigate(ScreensNavigation.LoginScreen.name)
+//            } else {
+//                navController.navigate(ScreensNavigation.HomeScreen.name) {
+//                    // Elimina la pantalla de splash del back stack para evitar que el usuario pueda volver a ella
+//                    popUpTo(ScreensNavigation.SplashScreen.name) { inclusive = true }
+//                }
+//            }
+//        } catch (e: Exception) {
+//            // Maneja posibles errores de autenticación aquí
+//            // Ejemplo: Mostrar un mensaje de error al usuario
+//        }
 
     }
 
