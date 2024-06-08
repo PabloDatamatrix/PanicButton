@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.globalseguridad.panicbutton.presentation.DeviceListScreen
 import com.globalseguridad.panicbutton.presentation.screens.permission.PermissionScreen
-import com.globalseguridad.panicbutton.presentation.screens.setting.Setting
 import com.globalseguridad.panicbutton.presentation.screens.splash.SplashScreen
 import com.globalseguridad.panicbutton.presentation.screens.ubication.Ubication
 import com.globalseguridad.panicbutton.presentation.screens.home.Home
@@ -34,9 +33,6 @@ fun Navigation(navController: NavHostController) {
         composable(ScreensNavigation.UbicationScreen.name) {
             Ubication(navController = navController)
         }
-        composable(ScreensNavigation.SettingScreen.name) {
-            Setting(navController = navController)
-        }
         composable("${ScreensNavigation.UserDetailsScreen.name}/{userId}") { backStackEntry ->
             val userId = backStackEntry.arguments?.getString("userId")
             UserDetailsScreen(navController = navController, userId = userId ?: "")
@@ -45,7 +41,7 @@ fun Navigation(navController: NavHostController) {
             DeviceListScreen()
         }
         profileNavGraph(navController)
-
+        settingNavGraph(navController)
     }
 }
 

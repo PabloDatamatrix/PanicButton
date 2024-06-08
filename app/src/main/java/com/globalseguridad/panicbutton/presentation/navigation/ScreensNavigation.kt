@@ -15,5 +15,11 @@ enum class ScreensNavigation {
     UserDetailsScreen,
     ChangePasswordScreen,
     PermissionLocationScreen,
-    DeviceListScreen
+    DeviceListScreen,
+    TutorRegistrationScreen,
+    WardScreen,
+    ActivityHistoryScreen,
+    NotificationScreen,
+
+
 }
