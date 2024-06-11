@@ -24,10 +24,10 @@ fun NavGraphBuilder.settingNavGraph(navController: NavHostController) {
             ActivityHistoryScreen(navController=navController)
         }
         composable(ScreensNavigation.NotificationScreen.name) {
-            // Implement your NotificationScreen composable here
+            NotificationScreen(navController=navController)
         }
         composable(ScreensNavigation.DeviceListScreen.name) {
-            // Implement your MinewDeviceScreen composable here
+            DeviceListScreen()
         }
     }
 }

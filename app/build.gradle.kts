@@ -51,9 +51,9 @@ android {
 }
 
 dependencies {
-    implementation("io.insert-koin:koin-android:3.2.0")
-    implementation("io.insert-koin:koin-androidx-compose:3.2.0")
 
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
 
     implementation(files("libs/MTBeaconPlus.aar"))

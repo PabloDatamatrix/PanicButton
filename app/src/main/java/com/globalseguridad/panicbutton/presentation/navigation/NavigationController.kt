@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.globalseguridad.panicbutton.presentation.DeviceListScreen
+import com.globalseguridad.panicbutton.presentation.screens.setting.DeviceListScreen
 import com.globalseguridad.panicbutton.presentation.screens.permission.PermissionScreen
 import com.globalseguridad.panicbutton.presentation.screens.splash.SplashScreen
 import com.globalseguridad.panicbutton.presentation.screens.ubication.Ubication
